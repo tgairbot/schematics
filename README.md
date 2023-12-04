@@ -12,4 +12,4 @@ $ npm install -g @tgairbot/schematics
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+[MIT licensed](LICENSE).
