@@ -9,7 +9,6 @@
   "scripts": {
     "postbuild": "npm run copy:collection && npm run copy:lib",
     "build": "rm -rf dist && tsc --project tsconfig.lib.json",
-    "clean": "gulp clean:src",
     "copy:collection": "cpx src/collection.json dist && cpx 'src/lib/**/schema.json' dist/lib",
     "copy:lib": "cpx 'src/lib/**/{files,workspace}/**/*.*' dist/lib && cpx 'src/lib/**/{files,workspace}/**/.!(gitignore)' dist/lib",
     "lint": "eslint '{src,test}/**/*.ts' --fix",
@@ -17,11 +16,12 @@
     "publish:next": "npm publish --access public --tag next",
     "prepublish:npm": "npm run build",
     "publish:npm": "npm publish --access public",
-    "test": "npm run clean && NODE_ENV=test jest -w 1 --no-cache --config jest.json",
-    "test:dev": "NODE_ENV=test npm run -s test -- --watchAll",
     "prerelease": "npm run build",
-    "release": "release-it",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "precommit": "lint-staged --no-stash && yarn lint",
+    "prettier": "yarn prettier:check && yarn prettier:write",
+    "prettier:check": "prettier --config .prettierrc --check \"./src/**/*.{ts,js,json,*rc}\"",
+    "prettier:write": "prettier --config .prettierrc --write \"./src/**/*.{ts,js,json,*rc}\""
   },
   "schematics": "./dist/collection.json",
   "author": "",
