@@ -7,18 +7,23 @@
     "dist/**/*"
   ],
   "scripts": {
-    "postbuild": "npm run copy:collection && npm run copy:lib",
+    "prebuild": "yarn lint",
     "build": "rm -rf dist && tsc --project tsconfig.lib.json",
+    "postbuild": "npm run copy:collection && npm run copy:lib",
     "copy:collection": "cpx src/collection.json dist && cpx 'src/lib/**/schema.json' dist/lib",
     "copy:lib": "cpx 'src/lib/**/{files,workspace}/**/*.*' dist/lib && cpx 'src/lib/**/{files,workspace}/**/.!(gitignore)' dist/lib",
-    "lint": "eslint '{src,test}/**/*.ts' --fix",
+
     "prepublish:next": "npm run build",
     "publish:next": "npm publish --access public --tag next",
+
     "prepublish:npm": "npm run build",
     "publish:npm": "npm publish --access public",
+
     "prerelease": "npm run build",
     "prepare": "husky install",
     "precommit": "lint-staged --no-stash && yarn lint",
+
+    "lint": "yarn prettier && eslint '{src,test}/**/*.ts' --fix",
     "prettier": "yarn prettier:check && yarn prettier:write",
     "prettier:check": "prettier --config .prettierrc --check \"./src/**/*.{ts,js,json,*rc}\"",
     "prettier:write": "prettier --config .prettierrc --write \"./src/**/*.{ts,js,json,*rc}\""
@@ -47,6 +52,6 @@
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
   }
 }
