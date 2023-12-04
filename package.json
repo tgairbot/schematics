@@ -7,7 +7,7 @@
     "dist/**/*"
   ],
   "scripts": {
-    "prebuild": "yarn lint",
+    "prebuild": "yarn eslint",
     "build": "rm -rf dist && tsc --project tsconfig.lib.json",
     "postbuild": "npm run copy:collection && npm run copy:lib",
     "copy:collection": "cpx src/collection.json dist && cpx 'src/lib/**/schema.json' dist/lib",
