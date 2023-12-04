@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "SchematicsTgAirBotLayout",
+  "title": "TgAirBot Layout Options Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the layout.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use for the layout?"
+    },
+    "path": {
+      "type": "string",
+      "format": "path",
+      "description": "The path to create the layout."
+    },
+    "sourceRoot": {
+      "type": "string",
+      "description": "TgAirBot layout source root directory."
+    },
+    "flat": {
+      "type": "boolean",
+      "default": true,
+      "description": "Flag to indicate if a directory is created."
+    }
+  },
+  "required": ["name"]
+}

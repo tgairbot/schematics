@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "SchematicsTgAirBotApplication",
+  "title": "TgAirBot Application Options Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "number" }
+      ],
+      "description": "The name of the application.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "What name would you like to use for the new project?"
+    },
+    "author": {
+      "type": "string",
+      "description": "TgAirBot application author.",
+      "default": ""
+    },
+    "description": {
+      "type": "string",
+      "description": "TgAirBot application description.",
+      "default": ""
+    },
+    "token": {
+      "type": "string",
+      "description": "Telegram bot token.",
+      "default": "YOU_BOT_TOKEN"
+    },
+    "directory": {
+      "type": "string",
+      "description": "TgAirBot application destination directory."
+    },
+    "strict": {
+      "type": "boolean",
+      "description": "With TypeScript strict mode.",
+      "default": false
+    },
+    "version": {
+      "type": "string",
+      "description": "TgAirBot application version.",
+      "default": "0.0.1"
+    },
+    "packageManager": {
+      "type": "string",
+      "description": "TgAirBot application package manager."
+    },
+    "dependencies": {
+      "type": "string",
+      "description": "TgAirBot application dependencies."
+    },
+    "devDependencies": {
+      "type": "string",
+      "description": "TgAirBot application development dependencies."
+    }
+  },
+  "required": ["name"]
+}

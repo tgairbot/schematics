@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "application": {
+      "factory": "./lib/application/application.factory#main",
+      "description": "Create a TgAirBot application.",
+      "schema": "./lib/application/schema.json"
+    },
+    "angular-app": {
+      "factory": "./lib/client-app/angular/angular.factory#main",
+      "description": "Create a new Angular application.",
+      "schema": "./lib/client-app/angular/schema.json"
+    },
+    "middleware": {
+      "factory": "./lib/middleware/middleware.factory#main",
+      "description": "Create TgAirBot middleware.",
+      "schema": "./lib/middleware/schema.json",
+      "aliases": ["mi"]
+    },
+    "layout": {
+      "factory": "./lib/layout/layout.factory#main",
+      "description": "Create TgAirBot layout.",
+      "schema": "./lib/layout/schema.json",
+      "aliases": ["l"]
+    },
+    "storage": {
+      "factory": "./lib/storage/storage.factory#main",
+      "description": "Create TgAirBot storage.",
+      "schema": "./lib/storage/schema.json",
+      "aliases": ["s"]
+    }
+  }
+}
