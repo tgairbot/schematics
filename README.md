@@ -10,7 +10,6 @@ The TgAirBot CLI is a command-line interface tool that helps you to initialize, 
 $ npm install -g @tgairbot/schematics
 ```
 
-
 ## License
 
 Nest is [MIT licensed](LICENSE).
